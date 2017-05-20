@@ -23,22 +23,43 @@ function loan (){
     } // end of misspayment function within loan function
 
     return  { 
+
         getBalance: function (){
         return account.balance;
-        } // end of unamed function
-    }; // return getBalance
+        }, // end of unamed function
+     // return getBalance
 
-    return {
+ 
         receivePayment: function (amount){
             if(amount<account.monthlyPayment){
-                misspayment();
+                missPayment ();
                 account.monthlyPayment-=amount;
             }
-        }//end of unamed function withing receivePayment Object
-    }; // return receivePayments
+        },//end of unamed function withing receivePayment Object
+
+
+    
+        getMonthlyPayment: function (){
+            return account.monthlyPayment;
+        },//end of get MonthlyPayment function
+    
+
+    
+        isfForeClosed: function (){
+            return account.foreclosed;
+        } //end of function isForeclosed
+     }; // end of unamed object and closure
+
+     function borrower(loan){
+        var account = {};
+     }//end of borrower function
 
 
 
 } // end of loan function
+
+loan();
+
+stevesLoan = loan();
 
 
