@@ -45,21 +45,40 @@ function loan (){
     
 
     
-        isfForeClosed: function (){
+        isForeclosed: function (){
             return account.foreclosed;
         } //end of function isForeclosed
      }; // end of unamed object and closure
-
-     function borrower(loan){
-        var account = {};
-     }//end of borrower function
-
-
-
 } // end of loan function
 
-loan();
+    function borrower(loan){
+        var account = {};
+        account.monthlyIncome = 1350;
+        account.funds = 2800;
+        account.loan = loan;
 
+
+        return { getFunds: function(){
+            return account.funds;
+        }, // end of getFunds object
+
+        makePayment: function(){
+            if(account.funds > account.loan){
+                account.funds -=account.monthlyPayment;
+                
+            }
+        }
+
+        
+
+        }; // end of object
+     }//end of borrower function
+
+loan();
 stevesLoan = loan();
+
+borrower(stevesLoan);
+steve = borrower;
+
 
 
